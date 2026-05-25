@@ -10,11 +10,14 @@ form.addEventListener("submit", (event) => {
     // prevent the default submission
     event.preventDefault();
 
-    const errorMessages = document.querySelector(".error-message");
+    const errorMessages = document.querySelectorAll(".error-message");
     console.log(typeof(errorMessages));
-    for(const k,v of errorMessages){
-        console.log(`Key: ${k} and value:${v}`);
-    }
+    // for(const k,v of errorMessages){
+    //     console.log(`Key: ${k} and value:${v}`);
+    // }
+    errorMessages.forEach(error => {
+        error.remove();
+    });
 
     // retrieve the username value
     const username = document.getElementById("username").value;
@@ -40,13 +43,14 @@ document.getElementById("username").addEventListener("input", (evt) =>{
  */
 function validateForm(){
     let isValid= true;
-    const username = document.getElementById("username").value;
+    const usernameInput = document.getElementById("username");
+    const username = usernameInput.value;
 
     //Simple validation rules: username should not be empty
     if (username === ""){
         console.error("Username must be filled out");
-        showInputError(username, "Username is  required.");
-        console.log("showInput Error was called.")
+        showInputError(usernameInput, "Username is  required.");
+        //console.log("showInput Error was called.")
         isValid = false;
     }
 
