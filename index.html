@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Module 4: HTML Forms and JavaScript</title>
+        <style>
+            .error-message {
+                color: red;
+                font-style: italic;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Section 1: HTML Forms and Core Elements -->
+        <!-- This section lays out the structure for our HTML form. It's the foundation for user interaction. -->
+        <!-- We're defining input fields for a username and an email. These fields are where users will input their data. -->
+        <!-- We're configuring the form to make a POST request to https://httpbin.org/post. -->
+        <form id="userForm" action="https://httpbin.org/post" method="post">
+            <div class="input-container">
+                <label for="username">Username:</label>
+                <!-- Text input for the username. It's a simple field that takes any text. -->
+                <input type="text" id="username" name="username" />
+                <!-- label's "for" attribute must be the same value as the input's "name" attribute" -->
+            </div>
+
+            <!-- Section 2: Built-in HTML5 Form Validation -->
+            <!-- HTML5 simplifies form validation. The 'email' input type, for instance, automatically validates email formats. -->
+            <!-- Additionally, the 'required' attribute ensures the form cannot be submitted without filling this field. -->
+            <div class="input-container">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" />
+            </div>
+
+            <!-- A submit button to send the form data. -->
+            <input type="submit" value="Submit" />
+        </form>
+
+        <footer>
+            <script src="script.js"></script>
+        </footer>
+    </body>
+</html>
+ 
