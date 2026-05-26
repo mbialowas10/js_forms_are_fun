@@ -1,3 +1,4 @@
+// modified: May 26, 2026
 // here, we grab a reference to our form. It's the gateway for user input.
 const form = document.getElementById("userForm");
 
