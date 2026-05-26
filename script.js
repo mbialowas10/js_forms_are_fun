@@ -44,7 +44,9 @@ document.getElementById("username").addEventListener("input", (evt) =>{
 function validateForm(){
     let isValid= true;
     const usernameInput = document.getElementById("username");
-    const username = usernameInput.value;
+    const username = escapeHTML(usernameInput.value);
+
+
 
     //Simple validation rules: username should not be empty
     if (username === ""){
@@ -56,7 +58,10 @@ function validateForm(){
 
     const email = document.getElementById("email");
 
-    const emailInputValue = email.value
+    const emailInputValue = escapeHTML(email.value)
+
+    console.log("Sanitized username entered:", username);
+    console.log("Sanitized emailed entered:", email);
 
     const simpleEmailPattern = /.+@.+\..+/;
 
@@ -111,5 +116,14 @@ function showInputError(inputElement, message){
 
     inputElement.parentElement.appendChild(errorDisplay);
 
+}
+// A function to replace special characters with HTML entity character sets
+function escapeHTML(input){
+    return input
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
 }
 
