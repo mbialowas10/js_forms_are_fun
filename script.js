@@ -54,6 +54,9 @@ function validateForm(){
 
     const email = document.getElementById("email");
     const emailInputValue = email.value;
+
+    console.log("Sanitized username entered: ", username);
+    console.log("Sanitized email entered: ", email);
     const simpleEmailPattern = /.+@.+\..+/;
 
     /**
@@ -100,4 +103,14 @@ function showInputError(inputElement, message){
 
     inputElement.parentElement.appendChild(errorDisplay);
 
+}
+
+//  A function to replace special characters with HTML entity character
+function escapeHTML(input){
+    return input
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#038;")
 }
